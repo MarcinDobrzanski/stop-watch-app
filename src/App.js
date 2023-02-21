@@ -1,14 +1,14 @@
+import Container from './components/Container/Container';
+import Button from './components/Button/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <Container>
+      <Button />
+      <Button />
+      <Button />
+    </Container>
   );
-}
+};
 
 export default App;
