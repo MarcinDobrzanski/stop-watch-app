@@ -5,8 +5,6 @@ function App() {
   return (
     <Container>
       <Button />
-      <Button />
-      <Button />
     </Container>
   );
 };

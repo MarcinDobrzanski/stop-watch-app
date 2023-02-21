@@ -1,26 +1,17 @@
 import styles from './Timer.module.scss'
-import React, { useState } from 'react';
 
-const Timer = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  const updateTime = () => {
-    setCurrentTime(new Date());
-  }
-
-  setInterval(updateTime, 1);
-
-  const hours = currentTime.getHours().toString().padStart(2, '0');
-  const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-  const seconds = currentTime.getSeconds().toString().padStart(2, '0');
-  const milliseconds = currentTime.getMilliseconds().toString().padStart(3, '0');
+const Timer = ({ timeElapsed }) => {
+  const hours = Math.floor((timeElapsed / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+  const minutes = Math.floor((timeElapsed / (1000 * 60)) % 60).toString().padStart(2, '0');
+  const seconds = Math.floor((timeElapsed / 1000) % 60).toString().padStart(2, '0');
+  const milliseconds = Math.floor(timeElapsed % 1000 / 10).toString().padStart(2, '0');
   const timeString = `${hours}:${minutes}:${seconds}.${milliseconds}`;
 
   return (
-    <div className={styles.watch}>
+    <div className={styles.timer}>
       {timeString}
     </div>
   );
-}
+};
 
 export default Timer;
