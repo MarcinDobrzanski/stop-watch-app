@@ -12,7 +12,7 @@ const Button = props => {
     if (timerActive) {
       interval = setInterval(() => {
         setTimeElapsed(timeElapsed => timeElapsed + 1);
-      }, 10);
+      }, 1);
     } else if (!timerActive && timeElapsed !== 0) {
       clearInterval(interval);
     }
