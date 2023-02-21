@@ -2,7 +2,7 @@ import styles from './Button.module.scss';
 import React, { useState, useEffect } from 'react';
 import Timer from './../Timer/Timer';
 
-const Button = props => {
+const Button = () => {
 
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
