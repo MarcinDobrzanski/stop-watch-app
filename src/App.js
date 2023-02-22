@@ -1,10 +1,10 @@
 import Container from './components/Container/Container';
-import Button from './components/Button/Button';
+import TimerSwitch from './components/TimerSwitch/TimerSwitch';
 
 function App() {
   return (
     <Container>
-      <Button />
+      <TimerSwitch />
     </Container>
   );
 };

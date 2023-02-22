@@ -1,8 +1,8 @@
-import styles from './Button.module.scss';
+import styles from './TimerSwitch.module.scss';
 import React, { useState, useEffect } from 'react';
-import Timer from './../Timer/Timer';
+import Timer from '../Timer/Timer';
 
-const Button = () => {
+const TimerSwitch = () => {
 
   const [time, setTime] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
@@ -42,4 +42,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default TimerSwitch;
