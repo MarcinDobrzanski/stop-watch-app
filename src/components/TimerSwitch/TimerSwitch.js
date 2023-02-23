@@ -6,21 +6,13 @@ const TimerSwitch = () => {
 
   const [time, setTime] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
-
-  useEffect(() => {
-    let interval = null;
-    if (timerActive) {
-      interval = setInterval(() => {
-        setTime(time => time + 1);
-      }, 1);
-    } else if (!timerActive && time !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [timerActive, time]);
+  const [intervalId, setIntervalId] = useState(null);
 
   const handleStart = () => {
     setTimerActive(true);
+    setIntervalId(setInterval(() => {
+      setTime(time => time + 1);
+    }, 1));
   };
 
   const handleStop = () => {
@@ -31,6 +23,13 @@ const TimerSwitch = () => {
     setTimerActive(false);
     setTime(0);
   };
+
+  useEffect(() => {
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    }
+  }, [timerActive, intervalId]);
 
   return (
     <div>
