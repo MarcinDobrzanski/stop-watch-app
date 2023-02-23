@@ -5,22 +5,20 @@ import Timer from '../Timer/Timer';
 const TimerSwitch = () => {
 
   const [time, setTime] = useState(0);
-  const [timerActive, setTimerActive] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
   const handleStart = () => {
-    setTimerActive(true);
     setIntervalId(setInterval(() => {
       setTime(time => time + 1);
     }, 1));
   };
 
   const handleStop = () => {
-    setTimerActive(false);
+    clearInterval(intervalId);
   };
 
   const handleReset = () => {
-    setTimerActive(false);
+    clearInterval(intervalId);
     setTime(0);
   };
 
@@ -29,7 +27,7 @@ const TimerSwitch = () => {
     return () => {
       if (intervalId) clearInterval(intervalId);
     }
-  }, [timerActive, intervalId]);
+  }, [intervalId]);
 
   return (
     <div>
